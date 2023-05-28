@@ -12,6 +12,26 @@
 #include "keys_fr.h"
 #include "../zmk-nodefree-config/helper.h"
 
+/* use helper macros to define left and right hand keys */
+#include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"                // keyposition helpers
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 // left-hand keys
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB6 // right-hand keys
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
+
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        global-quick-tap-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
+
+
 #define DEFAULT    0
 #define MEDIA      1 
 #define SHORT      2
@@ -69,9 +89,9 @@ ZMK_LAYER(media,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
               ___            ___          &kp F7       &kp F8        &kp F9       &kp F10             ___         &kp HOME     &kp PG_DN     &kp PG_UP      &kp END         ___   
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___            ___          &kp F4       &kp F5        &kp F6       &kp F11             ___         &kp LEFT     &kp DOWN       &kp UP       &kp RIGHT        ___   
+              ___            ___     &hml LCTRL F4 &hml LSHFT F5  &hml LALT F6    &kp F11             ___         &kp LEFT     &kp DOWN       &kp UP       &kp RIGHT        ___   
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___            ___          &kp F1       &kp F2        &kp F3       &kp F12             ___           ___           ___           ___           ___           ___   
+              ___            ___          &kp F1       &kp F2        &kp F3       &kp F12             ___         &kp TAB         ___           ___           ___           ___   
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                                         ___           ___           ___               ___           ___           ___   
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
