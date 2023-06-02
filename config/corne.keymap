@@ -32,6 +32,11 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
+#define MAKE_MSHFT(NAME, TAP, STAP) \ 
+     ZMK_BEHAVIOR(NAME, mod_morph, \
+               bindings = <&kp TAP>, <&kp STAP>; \
+               mods = <(MOD_LSFT|MOD_RSFT)>; \
+     )
 
 #define DEFAULT    0
 #define MEDIA      1 
@@ -40,24 +45,20 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 #define ___ &trans
 
-#define AS(keycode) &as LS(keycode) keycode
-ZMK_BEHAVIOR(as, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <130>;
-    quick-tap-ms = <0>;
-    bindings = <&kp>, <&kp>;
-    label = "AUTO_SHIFT";
-)
+MAKE_MSHFT(dot_grave, FR_DOT, FR_GRAVE)
+MAKE_MSHFT(semi_colon, FR_SEMI, FR_COLON)
+MAKE_MSHFT(comma_qmark, FR_COMMA, FR_QMARK)
+MAKE_MSHFT(fslh_tilde, FR_FSLH, FR_TILDE)
 
 ZMK_LAYER(default,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-            &kp TAB      AS(FR_Q)        AS(H)         AS(O)        AS(U)          AS(X)             AS(G)         AS(C)         AS(FR_M)      AS(R)         AS(FR_Z)     &kp ESC
+            &kp TAB      &kp FR_Q        &kp H         &kp O        &kp U          &kp X             &kp G         &kp C         &kp FR_M      &kp R         &kp FR_Z     &kp ESC
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LSHFT      AS(Y)          AS(I)         AS(E)        AS(FR_A)    &mt FR_GRAVE FR_DOT  AS(D)         AS(S)         AS(T)         AS(N)          AS(B)       &kp LGUI
+           &kp LSHFT      &kp Y          &kp I         &kp E        &kp FR_A     &dot_grave          &kp D         &kp S         &kp T         &kp N          &kp B       &kp LGUI
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-           &kp LCTRL      AS(J)   &mt FR_COLON FR_SEMI &mt FR_QMARK FR_COMMA AS(K) &mt FR_TILDE FR_FSLH AS(FR_W)   AS(F)         AS(L)         AS(P)          AS(V)       &kp LALT
+           &kp LCTRL      &kp J       &semi_colon   &comma_qmark     &kp K      &fslh_tilde         &kp FR_W       &kp F         &kp L         &kp P          &kp V       &kp LALT
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                      &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE      &kp RET       &mo NAV       &kp F12
+                                                      &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE   &mt LSHFT RET    &mo NAV       &kp ESC 
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -73,15 +74,30 @@ ZMK_LAYER(media,
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
+MAKE_MSHFT(lpar_lt, FR_LPAR, FR_LT)
+MAKE_MSHFT(equal_plus, EQUAL, PLUS)
+MAKE_MSHFT(rpar_gt, FR_RPAR, FR_GT)
+MAKE_MSHFT(bslh_pipe, FR_BSLH, FR_PIPE)
+
+MAKE_MSHFT(caret_diae, FR_CARET, FR_DIAE)
+MAKE_MSHFT(lbkt_lbrc, FR_LBKT, FR_LBRC)
+MAKE_MSHFT(minus_under, FR_MINUS, FR_UNDER)
+MAKE_MSHFT(rbkt_rbrc, FR_RBKT, FR_RBRC)
+MAKE_MSHFT(sqt_dqt, FR_SQT, FR_DQT)
+
+MAKE_MSHFT(hash_excl, FR_HASH, FR_EXCL)
+MAKE_MSHFT(star_at, FR_STAR, FR_AT)
+MAKE_MSHFT(amps_dllr, FR_AMPS, FR_DLLR)
+
   ZMK_LAYER(shortcut,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-              ___        &kp LA(F4)    &kp LS(F3)     &kp F3          &kp F2        ___          &kp FR_PRCNT &mt FR_LT FR_LPAR &mt PLUS EQUAL &mt FR_GT FR_RPAR &mt FR_PIPE FR_BSLH ___
+              ___        &kp LA(F4)    &kp LS(F3)     &kp F3          &kp F2        ___          &kp FR_PRCNT     &lpar_lt    &equal_plus     &rpar_gt    &bslh_pipe       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___       &kp LC(FR_A)   &kp LC(S)  &kp FR_E_ACCENT   &kp LC(F)       ___         &mt FR_DIAE FR_CARET &mt FR_LBRC FR_LBKT &mt FR_UNDER FR_MINUS &mt FR_RBRC FR_RBKT &mt FR_DQT FR_SQT ___
+              ___       &kp LC(FR_A)   &kp LC(S)  &kp FR_E_ACCENT   &kp LC(F)       ___           &caret_diae    &lbkt_lbrc  &minus_under    &rbkt_rbrc     &sqt_dqt       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___       &kp LC(FR_Z)   &kp LC(X)     &kp LC(C)      &kp LC(V)       ___           &kp FR_CCED  &mt FR_EXCL FR_HASH &mt FR_AT FR_STAR &mt FR_DLLR FR_AMPS ___ ___
+              ___       &kp LC(FR_Z)   &kp LC(X)     &kp LC(C)      &kp LC(V)       ___           &kp FR_CCED    &hash_excl     &star_at     &amps_dllr       ___          ___
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                        ___           ___           ___            &kp LA(F2)       ___           ___   
+                                                        ___           ___           ___            &kp LA(F2)     &kp LSFT      &kp F12   
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
