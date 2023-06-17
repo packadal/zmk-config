@@ -12,6 +12,10 @@
 #include "keys_fr.h"
 #include "../zmk-nodefree-config/helper.h"
 
+&nice_view_spi {
+    cs-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
+};
+
 /* use helper macros to define left and right hand keys */
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"                // keyposition helpers
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 // left-hand keys
@@ -32,7 +36,7 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-#define MAKE_MSHFT(NAME, TAP, STAP) \ 
+#define MAKE_MSHFT(NAME, TAP, STAP) \
      ZMK_BEHAVIOR(NAME, mod_morph, \
                bindings = <&kp TAP>, <&kp STAP>; \
                mods = <(MOD_LSFT|MOD_RSFT)>; \
