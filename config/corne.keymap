@@ -48,6 +48,12 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define NAV        3
 #define AZERTY     4
 
+ZMK_COMBO(eaccent, &kp FR_E_ACCENT   ,    LM3 LM4,     DEFAULT, COMBO_TERM_SLOW)
+ZMK_COMBO(egrave , &kp FR_GRAVE &kp E,    LM2 LM3,     DEFAULT, COMBO_TERM_SLOW)
+ZMK_COMBO(ecaret , &kp FR_CARET &kp E,    LM3 LT3,     DEFAULT, COMBO_TERM_SLOW)
+ZMK_COMBO(ugrave , &kp FR_GRAVE &kp U,    LT4 LT5,     DEFAULT, COMBO_TERM_SLOW)
+ZMK_COMBO(ucaret , &kp FR_CARET &kp U,    LT5 LT6,     DEFAULT, COMBO_TERM_SLOW)
+
 #define ___ &trans
 
 MAKE_MSHFT(dot_grave, FR_DOT, FR_GRAVE)
