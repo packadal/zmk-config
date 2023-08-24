@@ -88,6 +88,12 @@ ZMK_COMBO(egrave , &macro_egrave     ,    LM2 LM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(ecaret , &macro_ecaret     ,    LM2 LT2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(ugrave , &macro_ugrave     ,    LT1 LT2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(ucaret , &macro_ucaret     ,    LT0 LT1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(copy   , &kp LC(C)         ,    LB2 LB3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(cut    , &kp LC(X)         ,    LB1 LB3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
+
+// left-hand combos
+ZMK_COMBO(cced   , &kp FR_CCED       ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
 
 #define ___ &trans
 
