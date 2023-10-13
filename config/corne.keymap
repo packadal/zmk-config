@@ -47,6 +47,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define SHORT      2
 #define NAV        3
 #define AZERTY     4
+#define AZERTY_NUM 5
 
 #undef COMBO_HOOK
 #define COMBO_HOOK global-quick-tap-ms = <150>;
@@ -92,7 +93,7 @@ ZMK_COMBO(copy   , &kp LC(C)         ,    LB2 LB3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(cut    , &kp LC(X)         ,    LB1 LB3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
 
-// left-hand combos
+// right-hand combos
 ZMK_COMBO(cced   , &kp FR_CCED       ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
 
 #define ___ &trans
@@ -174,6 +175,18 @@ ZMK_LAYER(azerty,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
            &kp LCTRL      &kp FR_W       &kp X         &kp C         &kp V         &kp B             &kp N     &kp FR_COMMA   &kp FR_SEMI  &kp FR_COLON   &kp FR_EXCL    &kp LALT
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                      &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE   &mt LSHFT RET    &mo NAV       &kp ESC 
+                                                      &kp LALT   &lt AZERTY_NUM BSPC &lt SHORT SPACE &mt LSHFT RET &mo NAV      &kp ESC 
+     //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(azerty_numbers,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            &kp TAB        &kp N1        &kp N2       &kp N3        &kp N4        &kp N5             &kp N6         &kp N7       &kp N8         &kp N9       &kp N0      &to DEFAULT
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+           &kp LSHFT     &kp FR_Q        &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L       &kp FR_M      &kp LGUI
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+           &kp LCTRL      &kp FR_W       &kp X         &kp C         &kp V         &kp B             &kp N     &kp FR_COMMA   &kp FR_SEMI  &kp FR_COLON   &kp FR_EXCL    &kp LALT
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                      &kp DEL   &lt MEDIA BSPC &lt NAV SPACE   &mt LSHFT RET    &mo NAV       &kp ESC 
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
