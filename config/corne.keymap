@@ -77,24 +77,21 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     }; \
 }; \
 
-ZMK_SIMPLE_MACRO(egrave, &kp FR_GRAVE &kp E)
 ZMK_SIMPLE_MACRO(ecaret, &kp FR_CARET &kp E)
-ZMK_SIMPLE_MACRO(ugrave, &kp FR_GRAVE &kp U)
 ZMK_SIMPLE_MACRO(ucaret, &kp FR_CARET &kp U)
-ZMK_SIMPLE_MACRO(agrave, &kp FR_GRAVE &kp FR_A)
 
-ZMK_COMBO(agrave , &macro_agrave     ,    LM0 LM1,     DEFAULT, COMBO_TERM_FAST)
-ZMK_COMBO(eaccent, &kp FR_E_ACCENT   ,    LM1 LM2,     DEFAULT, COMBO_TERM_FAST)
-ZMK_COMBO(egrave , &macro_egrave     ,    LM2 LM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(agrave , &kp FR_A_GRAVE    ,    LM0 LM1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(eaccent, &kp FR_E_ACUTE    ,    LM1 LM2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(egrave , &kp FR_E_GRAVE    ,    LM2 LM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(ecaret , &macro_ecaret     ,    LM2 LT2,     DEFAULT, COMBO_TERM_FAST)
-ZMK_COMBO(ugrave , &macro_ugrave     ,    LT1 LT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(ugrave , &kp FR_U_GRAVE    ,    LT1 LT2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(ucaret , &macro_ucaret     ,    LT0 LT1,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(copy   , &kp LC(C)         ,    LB2 LB3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(cut    , &kp LC(X)         ,    LB1 LB3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
 
 // right-hand combos
-ZMK_COMBO(cced   , &kp FR_CCED       ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(cced   , &kp FR_C_CEDILLA  ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(minus  , &kp FR_MINUS      ,    RM1 RM2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(under  , &kp FR_UNDER      ,    RM2 RM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(squote , &kp FR_SQT        ,    RB1 RB2,     DEFAULT, COMBO_TERM_FAST)
@@ -136,7 +133,7 @@ MAKE_MSHFT(equal_plus, EQUAL, PLUS)
 MAKE_MSHFT(rpar_gt, FR_RPAR, FR_GT)
 MAKE_MSHFT(bslh_pipe, FR_BSLH, FR_PIPE)
 
-MAKE_MSHFT(caret_diae, FR_CARET, FR_DIAE)
+MAKE_MSHFT(caret_diae, FR_CARET, FR_UMLAUT)
 MAKE_MSHFT(lbkt_lbrc, FR_LBKT, FR_LBRC)
 MAKE_MSHFT(minus_under, FR_MINUS, FR_UNDER)
 MAKE_MSHFT(rbkt_rbrc, FR_RBKT, FR_RBRC)
@@ -150,9 +147,9 @@ MAKE_MSHFT(amps_dllr, FR_AMPS, FR_DLLR)
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
               ___        &kp LA(F4)    &kp LS(F3)     &kp F3          &kp F2        ___          &kp FR_PRCNT     &lpar_lt    &equal_plus     &rpar_gt    &bslh_pipe       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___       &kp LC(FR_A)   &kp LC(S)  &kp FR_E_ACCENT   &kp LC(F)       ___           &caret_diae    &lbkt_lbrc  &minus_under    &rbkt_rbrc     &sqt_dqt       ___
+              ___       &kp LC(FR_A)   &kp LC(S)  &kp FR_E_ACUTE    &kp LC(F)       ___           &caret_diae    &lbkt_lbrc  &minus_under    &rbkt_rbrc     &sqt_dqt       ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___       &kp LC(FR_Z)   &kp LC(X)     &kp LC(C)      &kp LC(V)       ___           &kp FR_CCED    &hash_excl     &star_at     &amps_dllr       ___          ___
+              ___       &kp LC(FR_Z)   &kp LC(X)     &kp LC(C)      &kp LC(V)       ___               ___        &hash_excl     &star_at     &amps_dllr       ___          ___
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                         ___           ___           ___             &kp LSFT     &kp LA(F2)     &kp F12   
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
