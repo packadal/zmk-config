@@ -125,13 +125,13 @@ ZMK_LAYER(default,
 
 ZMK_LAYER(media,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-              ___          ___         &kp K_PREV    &kp K_PP      &kp K_NEXT   &bootloader       &bootloader    &kp FR_N7     &kp FR_N8     &kp FR_N9    &kp FR_MINUS     ___
+              ___          ___         &kp K_PREV    &kp K_PP      &kp K_NEXT   &bootloader       &bootloader    &kp FR_N7     &kp FR_N8     &kp FR_N9    &kp FR_MINUS      ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              ___  &kp LGUI &hml LCTRL K_VOL_DN &hml LSHFT K_MUTE &hml LALT K_VOL_UP &sys_reset    &sys_reset    &kp FR_N4     &kp FR_N5     &kp FR_N6     &kp PLUS        ___
+              ___  &kp LGUI &hml LCTRL K_VOL_DN &hml LSHFT K_MUTE &hml LALT K_VOL_UP &sys_reset    &sys_reset    &kp FR_N4     &kp FR_N5     &kp FR_N6     &kp PLUS         ___
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             ___         &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2 &ext_power EP_OFF      ___        &kp FR_N1     &kp FR_N2     &kp FR_N3         ___         ___
+             ___         &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2 &ext_power EP_OFF      ___        &kp FR_N1     &kp FR_N2     &kp FR_N3     &kp FR_N0        ___
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                        ___           ___           ___               ___        &kp FR_N0    &kp FR_DOT   
+                                                        ___           ___           ___               ___        &kp FR_DOT      ___   
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
