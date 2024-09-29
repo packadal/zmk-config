@@ -96,8 +96,10 @@ ZMK_COMBO(paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(cced   , &kp FR_C_CEDILLA  ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(minus  , &kp FR_MINUS      ,    RM1 RM2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(under  , &kp FR_UNDER      ,    RM2 RM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(pipe   , &kp FR_PIPE       ,    RM1 RM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(squote , &kp FR_SQT        ,    RB1 RB2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(dquote , &kp FR_DQT        ,    RB2 RB3,     DEFAULT, COMBO_TERM_FAST)
+
 
 #define ___ &trans
 
