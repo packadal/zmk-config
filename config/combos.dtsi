@@ -1,0 +1,57 @@
+/*                KEY POSITIONS
+
+  ╭─────────────────────╮ ╭─────────────────────╮
+  │ LT4 LT3 LT2 LT1 LT0 │ │ RT0 RT1 RT2 RT3 RT4 │
+  │ LM4 LM3 LM2 LM1 LM0 │ │ RM0 RM1 RM2 RM3 RM4 │
+  │ LB4 LB3 LB2 LB1 LB0 │ │ RB0 RB1 RB2 RB3 RB4 │
+  ╰───────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────╯
+          ╰─────────────╯ ╰─────────────╯  
+*/
+
+#define COMBO_TERM_FAST 18
+#define COMBO_TERM_SLOW 30
+
+#define COMBO_IDLE_FAST 150
+#define COMBO_IDLE_SLOW 50
+
+#define ZMK_SIMPLE_MACRO(name, keys) \
+/ { \
+    macros { \
+        macro_ ## name: name { \
+            label = ZMK_HELPER_STRINGIFY(name); \
+            compatible = "zmk,behavior-macro"; \
+            #binding-cells = <0>; \
+            bindings \
+                = <&macro_tap keys> \
+                ; \
+        }; \
+    }; \
+}; \
+
+ZMK_SIMPLE_MACRO(ecaret, &kp FR_CARET &kp E)
+ZMK_SIMPLE_MACRO(ucaret, &kp FR_CARET &kp U)
+
+// left-hand combos
+ZMK_COMBO(combo_agrave , &kp FR_A_GRAVE    ,    LM0 LM1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_eaccent, &kp FR_E_ACUTE    ,    LM1 LM2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_egrave , &kp FR_E_GRAVE    ,    LM2 LM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ecaret , &macro_ecaret     ,    LM2 LT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ugrave , &kp FR_U_GRAVE    ,    LT1 LT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_ucaret , &macro_ucaret     ,    LT0 LT1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_copy   , &kp LC(C)         ,    LB2 LB3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_cut    , &kp LC(X)         ,    LB1 LB3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
+
+// right-hand combos
+ZMK_COMBO(combo_cced   , &kp FR_C_CEDILLA  ,    RT0 RT1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_bspc   , &kp BSPC          ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_del    , &kp DEL           ,    RT2 RT3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_eq     , &kp EQUAL         ,    RT2 RM2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_lt     , &kp FR_LT         ,    RT1 RM1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_gt     , &kp FR_GT         ,    RT3 RM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_minus  , &kp FR_MINUS      ,    RM1 RM2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_under  , &kp FR_UNDER      ,    RM2 RM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_pipe   , &kp FR_PIPE       ,    RM1 RM3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_squote , &kp FR_SQT        ,    RB1 RB2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_dquote , &kp FR_DQT        ,    RB2 RB3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(combo_grave  , &kp FR_GRAVE      ,    RB1 RB3,     DEFAULT, COMBO_TERM_FAST)
