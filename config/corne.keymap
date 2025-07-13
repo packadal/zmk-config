@@ -93,13 +93,18 @@ ZMK_COMBO(cut    , &kp LC(X)         ,    LB1 LB3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(paste  , &kp LC(V)         ,    LB1 LB2,     DEFAULT, COMBO_TERM_FAST)
 
 // right-hand combos
-ZMK_COMBO(cced   , &kp FR_C_CEDILLA  ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(cced   , &kp FR_C_CEDILLA  ,    RT0 RT1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(bspc   , &kp BSPC          ,    RT1 RT2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(del    , &kp DEL           ,    RT2 RT3,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(eq     , &kp EQUAL         ,    RT2 RM2,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(lt     , &kp FR_LT         ,    RT1 RM1,     DEFAULT, COMBO_TERM_FAST)
+ZMK_COMBO(gt     , &kp FR_GT         ,    RT3 RM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(minus  , &kp FR_MINUS      ,    RM1 RM2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(under  , &kp FR_UNDER      ,    RM2 RM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(pipe   , &kp FR_PIPE       ,    RM1 RM3,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(squote , &kp FR_SQT        ,    RB1 RB2,     DEFAULT, COMBO_TERM_FAST)
 ZMK_COMBO(dquote , &kp FR_DQT        ,    RB2 RB3,     DEFAULT, COMBO_TERM_FAST)
-
+ZMK_COMBO(grave  , &kp FR_GRAVE      ,    RB1 RB3,     DEFAULT, COMBO_TERM_FAST)
 
 #define ___ &trans
 
