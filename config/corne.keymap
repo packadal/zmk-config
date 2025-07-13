@@ -10,6 +10,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+#include <behaviors/num_word.dtsi> // Requires auto-layer module.
+
 #include "zmk-helpers/helper.h"
 
 #include "keys_fr.h"
@@ -59,6 +61,11 @@ MAKE_MSHFT(fslh_tilde, FR_FSLH, FR_TILDE)
 ZMK_UNICODE_SINGLE(trademark, N2, N1, N2, N2)
 ZMK_UNICODE_SINGLE(copyright, N0, N0, A, N9)
 
+ZMK_BEHAVIOR(num_caps, mod_morph, 
+        bindings = <&caps_word>, <&num_word MEDIA>; 
+        mods = <(MOD_LSFT|MOD_RSFT)>; 
+)
+
 ZMK_LAYER(default,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
               ___        &kp FR_Q        &kp H         &kp O        &kp U          &kp X             &kp G         &kp C         &kp FR_M      &kp R         &kp FR_Z       ___     
@@ -67,7 +74,7 @@ ZMK_LAYER(default,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
               ___         &kp J       &semi_colon   &comma_qmark     &kp K      &fslh_tilde         &kp FR_W       &kp F         &kp L         &kp P          &kp V         ___     
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                      &kp DEL   &lt MEDIA BSPC &lt SHORT SPACE   &mt LSHFT RET   &lt NAV TAB    &kp ESC 
+                                                     &num_caps   &lt MEDIA BSPC &lt SHORT SPACE   &mt LSHFT RET   &lt NAV TAB    &kp ESC 
      //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
